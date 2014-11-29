@@ -68,19 +68,19 @@ module Wordament
         nmarks = mark(marks, n, x)
         if @unmarked
           strings(n, x, acc, nmarks, &block)
+        end
 
-          if wok
-            nwmarks = mark(marks, n, w)
-            if @unmarked
-              strings(n, w, acc, nwmarks, &block)
-            end
+        if wok
+          nwmarks = mark(marks, n, w)
+          if @unmarked
+            strings(n, w, acc, nwmarks, &block)
           end
+        end
 
-          if eok
-            nemarks = mark(marks, n, e)
-            if @unmarked
-              strings(n, e, acc, nemarks, &block)
-            end
+        if eok
+          nemarks = mark(marks, n, e)
+          if @unmarked
+            strings(n, e, acc, nemarks, &block)
           end
         end
       end
@@ -89,19 +89,19 @@ module Wordament
         smarks = mark(marks, s, x)
         if @unmarked
           strings(s, x, acc, smarks, &block)
+        end
 
-          if wok
-            swmarks = mark(marks, s, w)
-            if @unmarked
-              strings(s, w, acc, swmarks, &block)
-            end
+        if wok
+          swmarks = mark(marks, s, w)
+          if @unmarked
+            strings(s, w, acc, swmarks, &block)
           end
+        end
 
-          if eok
-            semarks = mark(marks, s, e)
-            if @unmarked
-              strings(s, e, acc, semarks, &block)
-            end
+        if eok
+          semarks = mark(marks, s, e)
+          if @unmarked
+            strings(s, e, acc, semarks, &block)
           end
         end
       end
@@ -123,11 +123,11 @@ module Wordament
   end
 end
 
-letters = ARGV[0] || 'nkmtisosdaehivrs'
+letters = ARGV[0] || 'fyulsaesessartip'
 
 puts 'Enumerating...'
 
 solver = Wordament::Solver.new
-solver.words(letters, min_length: 5, max_length: 15) do |word|
+solver.words(letters, min_length: 5, max_length: 10) do |word|
   puts word
 end
